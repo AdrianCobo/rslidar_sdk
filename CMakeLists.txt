@@ -176,23 +176,6 @@ target_link_libraries(rslidar_sdk_node
                       ${YAML_CPP_LIBRARIES}
                       ${rs_driver_LIBRARIES})
 
-#Ros#
-if(roscpp_FOUND)
-
-  target_link_libraries(rslidar_sdk_node 
-    ${ROS_LIBS})
-
-  if(${COMPILE_METHOD} STREQUAL "CATKIN")
-
-    install(TARGETS rslidar_sdk_node
-            RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-            LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-            ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION})
-
-  endif()
-
-endif(roscpp_FOUND)
-
 #Ros2#
 if(rclcpp_FOUND AND ${COMPILE_METHOD} STREQUAL "COLCON")
 
